@@ -1,0 +1,1232 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>LOU GEH</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload" style="background-color: #32cd32;">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#project" class="icon solid fa-folder"><span>Project</span></a>
+						<a href="#employees" class="icon solid fa-user"><span>Employees</span></a>
+						<a href="#dept" class="icon solid fa-users"><span>Departments</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+									<h1>LOU GEH</h1>
+									<p>PROJECT MONITORING</p>
+								</header>
+								<a href="#project" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>See projects</span></span>
+									<img src="images/me.jpg" alt="" />
+								</a>
+							</article>
+
+						<!-- Work -->
+							<article id="project" class="panel">
+								<header>
+									<h3>Projects</h3>
+								</header>
+								
+								<section>
+									<button type="button" class="btn btn-success addprojbtn" data-toggle="modal" data-target="#add_proj" style="font-size: 11px; float: right;"> Add Project </button>
+									<div class="table-responsive" id="showProj" style="font-size: 11px;">
+									</div>
+								</section>
+
+								
+							</article>
+
+						<!-- Employees -->
+							<article id="employees" class="panel">
+								<header>
+									<h3>Employees</h3>
+								</header>
+
+								<section>
+									<button type="button" class="btn btn-dark addempbtn" data-toggle="modal" data-target="#add_emp" style="font-size: 11px; float: right;"> Add Employee </button>
+									<div class="table-responsive" id="showemp" style="font-size: 11px;">
+              						</div>
+								</section>
+							</article>
+
+
+						<!-- Department -->
+							<article id="dept" class="panel">
+								<header>
+									<h3>Departments</h3>
+								</header>
+								<section>
+									<button type="button" class="btn btn-dark adddeptbtn" data-toggle="modal" data-target="#add_dept" style="font-size: 11px; float: right;"> Add Department </button>
+									<div class="table-responsive" id="showdept" style="font-size: 11px;">
+              						</div>
+								</section>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+			<!--modal-->
+			<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="form" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="formlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body" id="proj_information">
+			      	<div class="table-responsive" id="projinfo">
+			      	</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="info_form" tabindex="-1" role="dialog" aria-labelledby="info_form" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="info_formlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="container" id="information" style="font-size: .80em;">
+			      	</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="dept_form" tabindex="-1" role="dialog" aria-labelledby="dept_form" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="deptformlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="container" id="department" style="font-size: .80em;">
+			      	</div>
+			      </div>
+			      <div class="modal-footer">
+			        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel" />
+                  	<input type="submit" name="add_projbtn" id="add_projbtn" value="Add" class="btn btn-primary" />
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="add_proj" tabindex="-1" role="dialog" aria-labelledby="add_proj" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="addprojlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<form action="" method="post" id="form_addproj" style="font-size: 11px;">
+			      		<div class="form-row">
+			      			<div class="col-6 col-12-medium">
+			      				<label>Project Number</label>
+			      				<input class="form-control" type="text" name="prno" id="prno" placeholder="Project Number" style="font-size: 11px;">
+			      			</div>
+			      			<div class="col-6 col-12-medium">
+			      				<label>Project Name</label>
+			      				<input class="form-control" type="text" name="prname" id="prname" placeholder="Project Name" style="font-size: 11px;">
+			      			</div>
+			      		</div>
+
+			      		<br/> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-6 col-12-medium" id="mehere">
+			      					<label>Department</label>
+									<select class="form-control" name="deptdown" id="deptdown" style="font-size: 11px;">
+									</select>
+				      			</div>
+				      			<div class="col-6 col-12-medium">
+				      				<label>Status</label>
+				      					<select class="form-control" name="stat" id="stat" style="font-size: 11px;">
+				      						<option hidden>Select status</option>
+					      					<option value=0>ongoing</option>
+					      					<option value=1>finished</option>
+				      					</select>
+				      			</div>
+			      			</div>
+			      		
+			      	</form>
+			      </div>
+			      <div class="modal-footer">
+		            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+		            <button type="submit" name="insert" id="insert" class="btn btn-primary">Add</button>
+		          </div>  
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="upd_proj" tabindex="-1" role="dialog" aria-labelledby="upd_proj" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="updprojlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<form action="" method="post" id="upd_projform" style="font-size: 11px;">
+			      		<input type="hidden" name="oldprno" id="oldprno">
+			      		<div class="form-row">
+			      			<div class="col-6 col-12-medium">
+			      				<label>Project Number</label>
+			      				<input class="form-control" type="text" name="updprno" id="updprno" placeholder="Project Number" style="font-size: 11px;">
+			      			</div>
+			      			<div class="col-6 col-12-medium">
+			      				<label>Project Name</label>
+			      				<input class="form-control" type="text" name="updprname" id="updprname" placeholder="Project Name" style="font-size: 11px;">
+			      			</div>
+			      		</div>
+
+			      		<br/> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-6 col-12-medium" id="mehere">
+			      					<label>Department</label>
+									<select class="form-control" name="upddeptdown" id="upddeptdown" style="font-size: 11px;">
+									</select>
+				      			</div>
+				      			<div class="col-6 col-12-medium">
+				      				<label>Status</label>
+				      					<select class="form-control" name="updstat" id="updstat" style="font-size: 11px;">
+				      						<option hidden >Select status</option>
+					      					<option value=0>ongoing</option>
+					      					<option value=1>finished</option>
+				      					</select>
+				      			</div>
+			      			</div>
+			      		
+			      	</form>
+			      </div>
+			      <div class="modal-footer">
+		            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+		            <buton type="submit" name="upproj" id="upproj" class="btn btn-primary" >Update</buton>
+		          </div>  
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="add_emp" tabindex="-1" role="dialog" aria-labelledby="add_emp" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="addemplabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="container" id="add_employee" style="font-size: 11px;">
+			      		<form action="" method="post" id="add_empform" style="font-size: 11px;">
+			      			<div class="form-row">
+			      				<div class="col-md-5">
+			      					<label> Firstname </label>
+			      					<input type="text" name="fname" id="fname" placeholder="Firstname" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-5">
+			      					<label> Lastname</label>
+			      					<input type="text" name="lname" id="lname" placeholder="Lastname" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-2">
+			      					<label> Middle Initial</label>
+			      					<input type="text" name="mint" id="mint" placeholder="Middle Initial" class="form-control" style="font-size: 11px;">
+			      				</div>
+			      			</div>
+
+			      			<br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> SSN </label>
+			      					<input type="number" name="ssn" id="ssn" placeholder="SSN" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Gender </label>
+			      					<select class="form-control" id="gender" name="gender" style="font-size: 11px;">
+			      						<option hidden>Select gender</option>
+			      						<option value="m">Male</option>
+			      						<option value="f">Female</option>
+			      						<option value="other">Other</option>
+			      					</select>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> Birthday </label>
+			      					<input type="date" name="bday" id="bday" class="form-control" style="font-size: 11px;" required >
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Salary </label>
+			      					<input type="number" name="salary" id="salary" placeholder="Salary" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-12">
+			      					<label> Address </label>
+			      					<input type="text" name="address" id="address" placeholder="address" class="form-control" style="font-size: 11px;" required>
+			      				</div><br/><br/>
+			      			</div> <br/>
+
+			      			<hr>
+			      			<p>Department & Supervisor</p>
+			      			<div class="form-row">
+			      				<div class="col-md-12">
+			      					<label> Supervisor </label>
+			      					<select class="form-control" name="empsuper" id="empsuper" style="font-size: 11px;" required>
+									</select>
+			      				</div><br/><br/>
+
+			      				<div class="col-md-12">
+			      					<label> Department </label>
+			      					<select class="form-control" name="empdept" id="empdept" style="font-size: 11px;" required>
+									</select>
+			      				</div>
+			      			</div> <br/>
+
+			      			<hr>
+			      			<p>Dependent</p>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> First Name </label>
+			      					<input type="text" name="depname" placeholder="Firstname" id="depname" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Gender </label>
+			      					<select class="form-control" id="depgender" name="depgender" style="font-size: 11px;" required>
+			      						<option hidden>Select gender</option>
+			      						<option value="m">Male</option>
+			      						<option value="f">Female</option>
+			      						<option value="other">Other</option>
+			      					</select>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> Birthday </label>
+			      					<input type="date" name="depbdate" id="depbdate" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Relationship </label>
+			      					<input type="text" name="relationship" id="relationship" placeholder="Relationship" class="form-control" style="font-size: 11px;" required >
+			      				</div>
+			      			</div> <br/>
+			      				
+			      		</form>
+			      	</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="submit" name="empinsert" id="empinsert" class="btn btn-primary">Add</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="upd_emp" tabindex="-1" role="dialog" aria-labelledby="upd_emp" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="updemplabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="container" style="font-size: 11px;">
+			      		<form action="" method="post" id="upd_empform" style="font-size: 11px;">
+			      			<input type="hidden" name="oldssn" id="oldssn">
+			      			<div class="form-row">
+			      				<div class="col-md-5">
+			      					<label> Firstname </label>
+			      					<input type="text" name="ufname" id="ufname" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-5">
+			      					<label> Lastname</label>
+			      					<input type="text" name="ulname" id="ulname" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-2">
+			      					<label> Middle Initial</label>
+			      					<input type="text" name="umint" id="umint" class="form-control" style="font-size: 11px;">
+			      				</div>
+			      			</div>
+
+			      			<br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> SSN </label>
+			      					<input type="number" name="ussn" id="ussn" class="form-control" style="font-size: 11px;">
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Gender </label>
+			      					<select class="form-control" id="ugender" name="ugender" style="font-size: 11px;">
+			      						<option hidden>Select gender</option>
+			      						<option value="m">Male</option>
+			      						<option value="f">Female</option>
+			      						<option value="other">Other</option>
+			      					</select>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> Birthday </label>
+			      					<input type="date" name="ubday" id="ubday" class="form-control" style="font-size: 11px;" required >
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Salary </label>
+			      					<input type="number" name="usalary" id="usalary" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-12">
+			      					<label> Address </label>
+			      					<input type="text" name="uaddress" id="uaddress" class="form-control" style="font-size: 11px;" required>
+			      				</div><br/><br/>
+
+			      			</div> <br/>
+
+			      			<hr>
+			      			<p>Department & Supervisor</p>
+			      			<div class="form-row">
+			      				<div class="col-md-12">
+			      					<label> Supervisor </label>
+			      					<select class="form-control" name="uempsuper" id="uempsuper" style="font-size: 11px;" required>
+									</select>
+			      				</div><br/><br/>
+
+			      				<div class="col-md-12">
+			      					<label> Department </label>
+			      					<select class="form-control" name="uempdept" id="uempdept" style="font-size: 11px;" required>
+									</select>
+			      				</div>
+			      			</div> <br/>
+
+
+
+			      			<hr>
+			      			<p>Dependent</p>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> First Name </label>
+			      					<input type="text" name="udepname" id="udepname" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Gender </label>
+			      					<select class="form-control" id="udepgender" name="udepgender" style="font-size: 11px;" required>
+			      						<option hidden>Select gender</option>
+			      						<option value="m">Male</option>
+			      						<option value="f">Female</option>
+			      						<option value="other">Other</option>
+			      					</select>
+			      				</div>
+			      			</div> <br/>
+
+			      			<div class="form-row">
+			      				<div class="col-md-6">
+			      					<label> Birthday </label>
+			      					<input type="date" name="udepbdate" id="udepbdate" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+
+			      				<div class="col-md-6">
+			      					<label> Relationship </label>
+			      					<input type="text" name="urelationship" id="urelationship" class="form-control" style="font-size: 11px;" required>
+			      				</div>
+			      			</div> <br/>
+			      				
+			      		</form>
+			      	</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+                  <button type="submit" name="updemp" id="updemp" class="btn btn-primary">Update</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="add_dept" tabindex="-1" role="dialog" aria-labelledby="add_dept" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="adddeptlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<form action="" method="post" id="add_deptform">
+			      		<div class="form-row">
+			      			<div class="col-md-5">
+			      				<label>Department Number</label>
+			      				<input type="text" name="deptno" id="deptno" class="form-control" style="font-size: 11px;">
+			      			</div>
+
+			      			<div class="col-md-7">
+			      				<label>Department Name</label>
+			      				<input type="text" name="deptname" id="deptname" class="form-control" style="font-size: 11px;">
+			      			</div>
+			      		</div>
+			      	</form>
+			      	
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="submit" name="deptinsert" id="deptinsert" class="btn btn-primary">Add</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="modal fade" id="upd_dept" tabindex="-1" role="dialog" aria-labelledby="upd_dept" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="upddeptlabel"></h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<form action="" method="post" id="upd_deptform">
+			      		<div class="form-row">
+			      			<div class="col-md-5">
+			      				<input type="hidden" name="oldno" id="oldno">
+
+			      				<label>Department Number</label>
+			      				<input type="text" name="updeptno" id="updeptno" class="form-control" style="font-size: 11px;">
+			      			</div>
+
+			      			<div class="col-md-7">
+			      				<label>Department Name</label>
+			      				<input type="text" name="updeptname" id="updeptname" class="form-control" style="font-size: 11px;">
+			      			</div>
+			      		</div>
+			      	</form>
+			      	
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="submit" name="updept" id="updept" class="btn btn-primary">Add</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+			  <script src="https://kit.fontawesome.com/aaae553ee8.js" crossorigin="anonymous"></script>
+			  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+			  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+			  <script src="sweetalert2.min.js"></script>
+			  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+			  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		    <script>
+		        $(document).ready(function(){
+		          //console.log('ayo');
+		          showproj();
+		          showemp();
+		          showdept();
+
+		          function showemp(){
+		            $.ajax({
+		              url: "assets/php/action.php",
+		              type: "POST",
+		              data: {action:"viewemp"},
+		              success:function(response){
+		              $("#showemp").html(response);
+		              $("table").dataTable({
+		                "dom": '<"top"l>rt<"bottom"ip><"clear">'
+		              });
+		            }
+		          });
+		          }
+
+		        function showproj(){
+		            $.ajax({
+		              url: "assets/php/action.php",
+		              type: "POST",
+		              data: {action:"viewproj"},
+		              success:function(response){
+		              //console.log(response);
+		              $("#showProj").html(response);
+		            }
+		          });
+		          }
+
+		    	function showdept(){
+		            $.ajax({
+		              url: "assets/php/action.php",
+		              type: "POST",
+		              data: {action:"viewdept"},
+		              success:function(response){
+		              //console.log(response);
+		              $("#showdept").html(response);
+		            }
+		          });
+		          }
+
+
+
+		    	
+
+		    	$("body").on("click", ".viewBtn", function(e){
+			      e.preventDefault();
+			      console.log('started')
+			      var edit_id = $(this).attr('id');
+			      a = decodeURIComponent(edit_id);
+			      b = a.split("=");
+			      empbyproj = b[1];
+			      $("#formlabel").text(b[1]);
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {empbyproj:empbyproj},
+			      	success:function(response){
+			        console.log(response);
+			        $("#projinfo").html(response);
+			      }
+			     })
+			  	})
+
+			  	$("body").on("click", ".view_empproj", function(e){
+			      e.preventDefault();
+			      console.log('start');
+			      var edit_id = $(this).attr('id');
+			      a = decodeURIComponent(edit_id);
+			      b = a.split("=");
+			      empproj = b[0];
+			      $("#info_formlabel").text(b[1]);
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {empproj:empproj},
+			      	success:function(response){
+			        console.log(response);
+			        $("#information").html(response);
+			      }
+			     })
+			  	})
+
+
+			  	$("body").on("click", ".addprojbtn", function(e){
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getdept"},
+			      	success:function(response){
+			      		$("#addprojlabel").text('Add Project');
+			        if(response){
+			        	$("#deptdown").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+			  	})
+
+
+			  	$("body").on("click", ".addempbtn", function(e){
+			  		console.log('addempbtn clicked!');
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getdept"},
+			      	success:function(response){
+			      		$("#addemplabel").text('Add Employee');
+			        if(response){
+			        	$("#empdept").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getsuper"},
+			      	success:function(response){
+			        if(response){
+			        	$("#empsuper").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+			  	})
+
+			  	$("body").on("click", ".adddeptbtn", function(e){
+			  		console.log('adddeptbtn clicked!');
+			  		$("#adddeptlabel").text('Add Department');
+			        //console.log(response);
+			    })
+
+
+			  	$("body").on("click", ".editproj", function(e){
+			      e.preventDefault();
+			      var edit_id = $(this).attr('id');
+			      a = decodeURIComponent(edit_id);
+			      b = a.split("=");
+			      $("#updprojlabel").text('Edit Project ' + b[1]);
+			      console.log(b[0]);
+			      $("#updprno").val(b[0]);
+			      $("#updprname").val(b[1]);
+			      $("#oldprno").val(b[0]);
+			      $("#updstat").val(b[3]);
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getdept"},
+			      	success:function(response){
+			        if(response){
+			        	$("#upddeptdown").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+			    })
+
+			    $("#upproj").click(function(e){
+	              var updprno = $("#updprno").val();
+	              var updprname = $("#updprname").val();
+	              var oldprno = $("#oldprno").val();
+	              var updprdept = $("#upddeptdown").val();
+	              var updstat = $("#updstat").val();
+
+	              if(updprno =='' || updprname == '' || oldprno == '' || updprdept == '' || updstat == '' ){
+	                    Swal.fire({
+	                      icon: 'error',
+	                      title: 'Oops!',
+	                      text: 'Looks like you missed some fields. Please try again!'
+	                    })
+	                  }else{
+
+	                    if($("#upd_projform")[0].checkValidity()){
+	                      e.preventDefault();
+	                      $.ajax({
+	                        url: "assets/php/action.php",
+	                        type: "POST",
+	                        data: $("#upd_projform").serialize()+"&action=updateproj",
+	                        success:function(response){
+	                                console.log(response);
+	                                  Swal.fire({
+	                                    title: 'You have successfully updated the project: ' + updprname,
+	                                    icon: 'success'
+	                                  })
+	                                  $("#upd_proj").modal('hide');
+	                                  $("#upd_projform")[0].reset();
+	                                  showproj();
+	                                }
+	                              });
+	                    }
+	                  }
+	                })
+
+
+			    $("body").on("click", ".edit_dept", function(e){
+			      e.preventDefault();
+			      var edit_id = $(this).attr('id');
+			      a = decodeURIComponent(edit_id);
+			      b = a.split("=");
+			      console.log(b[0]);
+			      $("#upddeptlabel").text('Update Department ' + b[1]);
+			      $("#updeptno").val(b[0]);
+			      $("#updeptname").val(b[1]);
+			      $("#oldno").val(b[0]);
+			    })
+
+
+		   	 $("#insert").click(function(e){
+		   	 	console.log('add clicked');
+		      var no = $("#prno").val();
+		      var name = $("#prname").val();
+		      var dept = $("#deptdown").val();
+		      var status = $("#stat").val();
+
+		      if(no == '' || name == ''|| dept == ''|| status == ''){
+		        Swal.fire({
+		          icon: 'error',
+		          title: 'Oops!',
+		          text: 'Looks like you missed some fields. Please try again!',
+		        })
+		      }else{
+		        if($("#form_addproj")[0].checkValidity()){
+		          e.preventDefault();
+		          $.ajax({
+		            url: "assets/php/action.php",
+		            type: "POST",
+		            data: $("#form_addproj").serialize()+"&action=newproject",
+		            success:function(response){
+		              data = response;
+		              console.log(data);
+		              if(data){
+		                Swal.fire({
+		                  title: 'You have successfully added the project ' + name,
+		                  icon: 'success'
+		                })
+		                $("#add_proj").modal('hide');
+		                $("#form_addproj")[0].reset();
+		                showproj();
+		              } else {
+		                Swal.fire({
+		                  icon: 'error',
+		                  title: 'Oops!',
+		                  text: "You're entering a duplicate!"
+		                });
+		                $("#form_addproj")[0].reset();
+		              }
+
+		            }
+		          });
+		        }
+		      }
+		    })
+
+
+		   	 $("#empinsert").click(function(e){
+		   	 console.log('add emp clicked');
+		      var fname = $("#fname").val();
+		      var lname = $("#lname").val();
+		      var mint = $("#mint").val();
+		      var ssn = $("#ssn").val();
+		      var oldssn = $("#oldssn").val();
+		      var gender = $("#gender").val();
+		      var bday = $("#bday").val();
+		      var salary = $("#salary").val();
+		      var address = $("#address").val();
+		      var empdept = $("#empdept").val();
+		      var empsuper = $("#empsuper").val();
+		      var depname = $("#depname").val();
+		      var depgender = $("#depgender").val();
+		      var depbdate = $("#depbdate").val();
+		      var relationship = $("#relationship").val();
+
+		        if($("#add_empform")[0].checkValidity()){
+		          e.preventDefault();
+		          $.ajax({
+		            url: "assets/php/action.php",
+		            type: "POST",
+		            data: $("#add_empform").serialize()+"&action=newemployee",
+		            success:function(response){
+		              data = response;
+		              console.log(data);
+		              if(data){
+		                Swal.fire({
+		                  title: 'You have successfully added employee ' + fname + ' ' + mint + ' ' + lname,
+		                  icon: 'success'
+		                })
+		                $("#add_emp").modal('hide');
+		                $("#add_empform")[0].reset();
+		                showemp();
+		              } else {
+		                Swal.fire({
+		                  icon: 'error',
+		                  title: 'Oops!',
+		                  text: "You're entering a duplicate!"
+		                });
+		                $("#add_empform")[0].reset();
+		              }
+
+		            }
+		          });
+		        }
+		      })
+
+		   	 $("body").on("click", ".editemp", function(e){
+			      e.preventDefault();
+			      var edit_id = $(this).attr('id');
+			      a = decodeURIComponent(edit_id);
+			      b = a.split("=");
+			      $("#updemplabel").text('Edit ' + b[1] + '\'s employee details');
+			      empid = b[0];
+			      console.log(b[0]);
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getdept"},
+			      	success:function(response){
+			        if(response){
+			        	$("#uempdept").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {action:"getsuper"},
+			      	success:function(response){
+			        if(response){
+			        	$("#uempsuper").html(response);
+			        } else {
+			        	console.log("nothing here");
+			        }
+
+			      }
+			     })
+
+			      $.ajax({
+			      	url: "assets/php/action.php",
+			      	type: "POST",
+			      	data: {empid:empid},
+			      	success:function(response){
+			      		var final = JSON.parse(response);
+			      		console.log(final);
+			      		$("#ufname").val(final.fname);
+					    $("#ulname").val(final.lname);
+					    $("#umint").val(final.mint);
+					    $("#ussn").val(final.ssn);
+					    $("#ugender").val(final.sex);
+					    $("#ubday").val((final.bdate));
+					    $("#usalary").val(final.salary);
+					    $("#uaddress").val(final.address);
+					    //$("#uempdept").val(final.deptno);
+					    //$("#uempsuper").val(final.superssn);
+					    $("#udepname").val(final.dname);
+					    $("#udepgender").val(final.gender);
+					    $("#udepbdate").val(final.dbdate);
+					    $("#urelationship").val(final.relationship);
+					    $("#oldssn").val(final.ssn);
+			      }
+			     })
+			    })
+
+
+
+		   	 $("#updemp").click(function(e){
+                var name = $("#ufname").val() + ' ' + $("#ulname").val();
+
+                    if($("#upd_empform")[0].checkValidity()){
+                      e.preventDefault();
+                      $.ajax({
+                        url: "assets/php/action.php",
+                        type: "POST",
+                        data: $("#upd_empform").serialize()+"&action=updateemp",
+                        success:function(response){
+                                console.log(response);
+                                  Swal.fire({
+                                    title: 'You have successfully updated ' + name + '\'s employee details',
+                                    icon: 'success'
+                                  })
+                                  $("#upd_emp").modal('hide');
+                                  $("#upd_empform")[0].reset();
+                                  showemp();
+                                }
+                              });
+                    }
+                })
+
+
+		   	 $("#deptinsert").click(function(e){
+		   	 	console.log('add clicked');
+		      var deptno = $("#deptno").val();
+		      var deptname = $("#deptname").val();
+		      
+
+		      if(deptno == '' || deptname == ''){
+		        Swal.fire({
+		          icon: 'error',
+		          title: 'Oops!',
+		          text: 'Looks like you missed some fields. Please try again!',
+		        })
+		      }else{
+		        if($("#add_deptform")[0].checkValidity()){
+		          e.preventDefault();
+		          $.ajax({
+		            url: "assets/php/action.php",
+		            type: "POST",
+		            data: $("#add_deptform").serialize()+"&action=newdepartment",
+		            success:function(response){
+		              data = response;
+		              console.log(data);
+		              if(data){
+		                Swal.fire({
+		                  title: 'You have successfully added the department ' + deptname,
+		                  icon: 'success'
+		                })
+		                $("#add_dept").modal('hide');
+		                $("#add_deptform")[0].reset();
+		                showdept();
+		              } else {
+		                Swal.fire({
+		                  icon: 'error',
+		                  title: 'Oops!',
+		                  text: "You're entering a duplicate!"
+		                });
+		                $("#add_deptform")[0].reset();
+		              }
+
+		            }
+		          });
+		        }
+		      }
+		    })
+
+
+		   	 $("#updept").click(function(e){
+              var updeptno = $("#updeptno").val();
+              var updeptname = $("#updeptname").val();
+              var oldno = $("#oldno").val();
+
+              if(updeptno =='' || updeptname == '' || oldno == ''){
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops!',
+                      text: 'Looks like you missed some fields. Please try again!'
+                    })
+                  }else{
+
+                    if($("#upd_deptform")[0].checkValidity()){
+                      e.preventDefault();
+                      $.ajax({
+                        url: "assets/php/action.php",
+                        type: "POST",
+                        data: $("#upd_deptform").serialize()+"&action=updatedept",
+                        success:function(response){
+                                console.log(response);
+                                  Swal.fire({
+                                    title: 'You have successfully updated the department: ' + updeptname,
+                                    icon: 'success'
+                                  })
+                                  $("#upd_dept").modal('hide');
+                                  $("#upd_deptform")[0].reset();
+                                  showdept();
+                                }
+                              });
+                    }
+                  }
+                })
+
+
+			$("body").on("click", ".del_dept", function(e){
+		      e.preventDefault();
+		      var tr = $(this).closest('tr');
+		      del_id = $(this).attr('id');
+		      a = decodeURIComponent(del_id);
+		      b = a.split("=");
+		      deldeptno = b[0];
+		      var message = "You are about to delete the department: <br><h5>" + b[1] + "</h5>";
+		      Swal.fire({
+		        title: 'Are you sure?',
+		        html: message,
+		        icon: 'warning',
+		        showCancelButton: true,
+		        confirmButtonText: 'Yes, delete it!',
+		        cancelButtonText: 'No, keep it'
+		      }).then((result) => {
+		        if(result.value){
+		          $.ajax({
+		            url:"assets/php/action.php",
+		            type:"POST",
+		            data:{deldeptno:deldeptno},
+		            success:function(response){
+		              console.log(response);
+		              if(response != false){
+		                tr.css('background-color', '#ff6666');
+		                Swal.fire(
+		                  'Deleted!',
+		                  'You have deleted the ' + b[1] + ' department',
+		                  'success'
+		                  )
+		                showdept();
+		              } else if (response == false){
+		                Swal.fire(
+		                  'Oops!',
+		                  'Error in deleting!',
+		                  'error'
+		                  )
+		              }
+		            }
+		          });
+		        }
+		      });
+		    });
+
+
+		    $("body").on("click", ".del_emp", function(e){
+		      e.preventDefault();
+		      var tr = $(this).closest('tr');
+		      del_id = $(this).attr('id');
+		      a = decodeURIComponent(del_id);
+		      b = a.split("=");
+		      delempno = b[0];
+		      var message = "You are about to delete the employee details of: " + b[1];
+		      Swal.fire({
+		        title: 'Are you sure?',
+		        html: message,
+		        icon: 'warning',
+		        showCancelButton: true,
+		        confirmButtonText: 'Yes, delete it!',
+		        cancelButtonText: 'No, keep it'
+		      }).then((result) => {
+		        if(result.value){
+		          $.ajax({
+		            url:"assets/php/action.php",
+		            type:"POST",
+		            data:{delempno:delempno},
+		            success:function(response){
+		              console.log(response);
+		              if(response != false){
+		                tr.css('background-color', '#ff6666');
+		                Swal.fire(
+		                  'Deleted!',
+		                  'You have deleted ' + b[1] + '\'s employee details.',
+		                  'success'
+		                  )
+		                showemp();
+		              } else if (response == false){
+		                Swal.fire(
+		                  'Oops!',
+		                  'Error in deleting!',
+		                  'error'
+		                  )
+		              }
+		            }
+		          });
+		        }
+		      });
+		    });
+
+
+
+		    $("body").on("click", ".del_proj", function(e){
+		      e.preventDefault();
+		      var tr = $(this).closest('tr');
+		      del_id = $(this).attr('id');
+		      a = decodeURIComponent(del_id);
+		      b = a.split("=");
+		      delprojno = b[0];
+		      var message = "You are about to delete the project: <br><h5>" + b[1] + "</h5>";
+		      Swal.fire({
+		        title: 'Are you sure?',
+		        html: message,
+		        icon: 'warning',
+		        showCancelButton: true,
+		        confirmButtonText: 'Yes, delete it!',
+		        cancelButtonText: 'No, keep it'
+		      }).then((result) => {
+		        if(result.value){
+		          $.ajax({
+		            url:"assets/php/action.php",
+		            type:"POST",
+		            data:{delprojno:delprojno},
+		            success:function(response){
+		              console.log(response);
+		              if(response != false){
+		                tr.css('background-color', '#ff6666');
+		                Swal.fire(
+		                  'Deleted!',
+		                  'You have deleted the project' + b[1],
+		                  'success'
+		                  )
+		                showproj();
+		              } else if (response == false){
+		                Swal.fire(
+		                  'Oops!',
+		                  'Error in deleting!',
+		                  'error'
+		                  )
+		              }
+		            }
+		          });
+		        }
+		      });
+		    });
+
+
+		    })
+
+		</script>
+
+
+	</body>
+</html>
